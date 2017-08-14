@@ -63,7 +63,23 @@ public class CancelaDAO {
 		return sttm.executeUpdate() > 0;
 	}
 	
-	
+	public Cancela buscarCancelaCOD(int codigo) throws SQLException{
+		Cancela cancela = new Cancela();
+		String sql = "select * from CANCELA where CODIGO = ?" ;
+		try (PreparedStatement stmt = con.prepareStatement(sql)) {
+			stmt.setInt(1, codigo);
+			stmt.execute();
+			try (ResultSet rs = stmt.getResultSet()) {
+				while (rs.next()) {
+					int cod = rs.getInt("codigo");
+					boolean situacao = rs.getBoolean("situacao");
+					cancela.setCodigo(cod);
+					cancela.setSituacao(situacao);
+				}
+			}
+		}
+		return cancela;
+	}
 	
 }
 

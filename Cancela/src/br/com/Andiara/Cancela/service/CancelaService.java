@@ -1,6 +1,8 @@
 package br.com.Andiara.Cancela.service;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import br.com.Andiara.Cancela.dao.CancelaDAO;
@@ -25,6 +27,16 @@ public class CancelaService {
 			cancelaDAO.alterarSituacaoFechar(cancela);
 		}
 		System.out.println("Cancela Fechada");
+		
+	}
+	
+	public Cancela buscarCancelaCOD(int codigo) throws SQLException{
+		try (Connection con = new ConnectionPoolOracle().getConnection()) {
+			CancelaDAO cancelaDAO = new CancelaDAO(con);
+		
+			return cancelaDAO.buscarCancelaCOD(codigo);
+		
+		}
 		
 	}
 

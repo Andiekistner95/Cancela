@@ -5,6 +5,9 @@ public class Cancela {
 	private boolean situacao;
 	private int codigo;
 
+	public Cancela() {
+	
+	}
 
 	public Cancela(boolean situacao,int codigo ) {
 		setSituacao(situacao);
