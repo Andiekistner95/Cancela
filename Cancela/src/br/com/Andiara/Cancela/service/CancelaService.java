@@ -1,8 +1,6 @@
 package br.com.Andiara.Cancela.service;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import br.com.Andiara.Cancela.dao.CancelaDAO;
